@@ -37,21 +37,13 @@ function ChatInput({ chatId }: Props) {
     };
 
     await addDoc(
-      collection(
-        db,
-        'user',
-        session?.user?.email!,
-        'chats',
-        chatId,
-        'messages',
-      ),
+      collection(db, 'user', session?.user?.email!, 'chats', chatId, 'message'),
       message,
     );
-
     // Toast notification to say loading
     const notification = toast.loading("I'm thinking...");
 
-    await fetch('/api/askQuestion', {
+    await fetch('/api/auth/askQuestion', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

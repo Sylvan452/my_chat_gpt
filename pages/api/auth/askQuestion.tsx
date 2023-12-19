@@ -41,7 +41,7 @@ export default async function handler(
     .doc(session?.user?.email)
     .collection('chats')
     .doc(chatId)
-    .collection('messages')
+    .collection('message')
     .add(message);
 
   res.status(200).json({ answer: message.text });
