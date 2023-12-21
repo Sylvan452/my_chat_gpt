@@ -42,7 +42,7 @@ Before you begin, ensure you have the following installed:
 1. Clone the repository:
 
    ```bash
-   git clonehttps://github.com/Sylvan452/my_chat_gpt
+   git clone https://github.com/Sylvan452/my_chat_gpt
    cd my_chat_gpt
    ```
 
