@@ -17,8 +17,8 @@ function ChatRow({ id }: Props) {
   const { data: session } = useSession();
   const [active, setActive] = useState(false);
 
-  const [messages] = useCollection(
-    collection(db, 'users', session?.user?.email!, 'chats', id, 'messages'),
+  const [message] = useCollection(
+    collection(db, 'user', session?.user?.email!, 'chats', id, 'message'),
   );
 
   useEffect(() => {
@@ -40,7 +40,7 @@ function ChatRow({ id }: Props) {
     >
       <ChatBubbleLeftIcon className="h-5 w-5" />
       <p className="flex-1 hidden md:inline-flex truncate">
-        {messages?.docs[messages?.docs.length - 1]?.data().text || 'New Chat'}
+        {message?.docs[message?.docs.length - 1]?.data().text || 'New Chat'}
       </p>
       <TrashIcon
         onClick={removeChat}

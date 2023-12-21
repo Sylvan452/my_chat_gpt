@@ -19,8 +19,6 @@ function SideBar() {
       ),
   );
 
-  console.log(chats);
-
   return (
     <div className="p-2 flex flex-col h-screen">
       <div className="flex-1">
@@ -30,10 +28,11 @@ function SideBar() {
           <div className="hidden sm:inline">
             <ModelSelection />
           </div>
-
-          {chats?.docs.map((chat) => (
-            <ChatRow key={chat.id} id={chat.id} />
-          ))}
+          <div>
+            {chats?.docs.map((chat) => (
+              <ChatRow key={chat.id} id={chat.id} />
+            ))}
+          </div>
         </div>
       </div>
       {session && (
